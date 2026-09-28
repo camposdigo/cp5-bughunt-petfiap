@@ -14,6 +14,18 @@ public class TosaTest {
     }
 
     @Test
+    public void deveAplicarPrecoCorretoNosPortesMedioEGrande() {
+        // Arrange
+        LocalDateTime data = LocalDateTime.of(2026, 10, 1, 10, 0);
+        Tosa media = new Tosa(2, "Mimi", "MEDIO", "Bruno", data);
+        Tosa grande = new Tosa(3, "Thor", "GRANDE", "Carla", data);
+
+        // Act + Assert
+        assertEquals(90.0, media.calcularPreco(), 0.001);
+        assertEquals(120.0, grande.calcularPreco(), 0.001);
+    }
+
+    @Test
     public void deveAcumular30PontosDeFidelidade() {
         // Act
         int pontos = tosaDoRex().calcularPontosFidelidade();
