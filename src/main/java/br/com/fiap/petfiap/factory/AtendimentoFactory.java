@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 // O resto do codigo depende apenas do tipo abstrato Atendimento.
 public class AtendimentoFactory {
 
+    private AtendimentoFactory() {
+    }
+
     public static Atendimento criar(int protocolo, String tipo, String petNome, String petPorte,
                                      String tutorNome, LocalDateTime dataHora) {
         return switch (tipo) {
