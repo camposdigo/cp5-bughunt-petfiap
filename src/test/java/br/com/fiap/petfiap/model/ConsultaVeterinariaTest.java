@@ -14,6 +14,20 @@ public class ConsultaVeterinariaTest {
     }
 
     @Test
+    public void deveCustar150ReaisIndependentementeDoPorte() {
+        // Arrange
+        LocalDateTime data = LocalDateTime.of(2026, 10, 1, 14, 0);
+        ConsultaVeterinaria pequena = new ConsultaVeterinaria(1, "Luna", "PEQUENO", "Ana", data);
+        ConsultaVeterinaria media = new ConsultaVeterinaria(2, "Mimi", "MEDIO", "Bruno", data);
+        ConsultaVeterinaria grande = new ConsultaVeterinaria(3, "Thor", "GRANDE", "Carla", data);
+
+        // Act + Assert
+        assertEquals(150.0, pequena.calcularPreco(), 0.001);
+        assertEquals(150.0, media.calcularPreco(), 0.001);
+        assertEquals(150.0, grande.calcularPreco(), 0.001);
+    }
+
+    @Test
     public void deveAcumular50PontosDeFidelidade() {
         // Act
         int pontos = consultaDaMimi().calcularPontosFidelidade();
